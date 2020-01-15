@@ -9,7 +9,8 @@
     "ios.app": "./node_modules/.bin/wdio ./config/wdio.ios.app.conf.js",
     "ios.sauce.rdc.app": "./node_modules/.bin/wdio ./config/saucelabs/wdio.ios.rdc.app.conf.js",
     "ios.browser": "./node_modules/.bin/wdio ./config/wdio.ios.browser.conf.js",
-    "lint": "eslint config tests"
+    "lint": "eslint config tests",
+    "doctor": "appium-doctor"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
   "homepage": "https://github.com/webdriverio/appium-boilerplate#readme",
   "dependencies": {},
   "devDependencies": {
+    "appium-chromedriver": "^4.20.1",
     "@babel/cli": "^7.7.7",
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
@@ -45,6 +47,7 @@
     "@wdio/sauce-service": "^5.16.10",
     "@wdio/spec-reporter": "^5.16.11",
     "@wdio/sync": "^5.17.0",
+    "appium-doctor": "^1.13.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",

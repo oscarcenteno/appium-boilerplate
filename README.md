@@ -108,3 +108,10 @@ See [FAQ](./docs/FAQ.md)
 
 ## Tips and Tricks
 See [Tips and Tricks](./docs/TIPS_TRICKS.md)
+
+## Changes from original project
+
+* Make sure to run the Appium server with this setting: chrome binary path: C:\code\...\appium-boilerplate\node_modules\appium-chromedriver\chromedriver\win\chromedriver.exe
+* Changed an Spec that had some failing expectations.
+* Added appium-chromedriver dependency
+* Changed config to point to my Android 7 device
