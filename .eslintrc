@@ -1,32 +1,39 @@
 {
   "extends": [
-    "standard",
+    "eslint:recommended",
     "plugin:wdio/recommended"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
-    "ecmaVersion": 2016,
+    "ecmaVersion": 2018,
     "sourceType": "module"
   },
   "rules": {
-    "indent": [
-      2,
-      4
-    ],
+    "line-break-style": 0,
     "semi": [
       "error",
       "always"
     ],
-    "comma-dangle": [
-      "error",
-      "only-multiline"
+    "no-console": [
+      "warn",
+      {
+        "allow": [
+          "error"
+        ]
+      }
+    ],
+    "quotes": [
+      "warn",
+      "single"
+    ],
+    "no-unused-vars": [
+      "warn"
     ]
   },
   "globals": {
     "$": true,
     "$$": true,
-    "browser": true,
-    "driver": true
+    "browser": true
   },
   "plugins": [
     "wdio",

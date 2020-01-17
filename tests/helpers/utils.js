@@ -17,11 +17,11 @@ const SELECTORS = {
  *
  * @return {string}
  */
-export function getTextOfElement (element, isXpath = false) {
+export function getTextOfElement(element, isXpath = false) {
     let visualText;
 
     try {
-        if (driver.isAndroid) {
+        if (browser.isAndroid) {
             visualText = element.$$(SELECTORS.ANDROID.TEXT).reduce((currentValue, el) => `${currentValue} ${el.getText()}`, '');
         } else {
             const iosElement = isXpath ? element.$$(SELECTORS.IOS.TEXT_ELEMENT) : element;
@@ -45,7 +45,7 @@ export function getTextOfElement (element, isXpath = false) {
  * @param {number} start    the time in milliseconds
  * @param {number} end      the time in milliseconds
  */
-export function timeDifference (start, end) {
+export function timeDifference(start, end) {
     const elapsed = (end - start) / 1000;
     console.log('elapsed = ', elapsed, ' seconds');
 }

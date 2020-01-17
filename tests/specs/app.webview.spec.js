@@ -5,7 +5,7 @@ import { CONTEXT_REF } from '../helpers/WebView';
 
 describe('WebdriverIO and Appium, when interacting with a WebView,', () => {
     beforeEach(() => {
-        TabBar.waitForTabBarShown(true);
+        TabBar.waitForTabBarShown();
         TabBar.openWebView();
         WebViewScreen.waitForWebsiteLoaded();
     });

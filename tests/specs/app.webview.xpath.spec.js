@@ -6,7 +6,7 @@ describe('WebdriverIO and Appium', () => {
     let start;
     beforeEach(() => {
         browser.reset();
-        TabBar.waitForTabBarShown(true);
+        TabBar.waitForTabBarShown();
         TabBar.openWebView();
         start = Date.now();
     });

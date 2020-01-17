@@ -3,7 +3,7 @@ import LoginScreen from '../screenobjects/login.screen';
 
 describe('WebdriverIO and Appium, when interacting with a login form,', () => {
     beforeEach(() => {
-        TabBar.waitForTabBarShown(true);
+        TabBar.waitForTabBarShown();
         TabBar.openLogin();
         LoginScreen.waitForIsShown(true);
     });
@@ -13,8 +13,8 @@ describe('WebdriverIO and Appium, when interacting with a login form,', () => {
         LoginScreen.email.setValue('test@webdriver.io');
         LoginScreen.password.setValue('Test1234!');
 
-        if (driver.isKeyboardShown()) {
-            driver.hideKeyboard();
+        if (browser.isKeyboardShown()) {
+            browser.hideKeyboard();
         }
         LoginScreen.loginButton.click();
         LoginScreen.alert.waitForIsShown();

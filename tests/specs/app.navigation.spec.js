@@ -7,7 +7,7 @@ import HomeScreen from '../screenobjects/home.screen';
 
 describe('WebdriverIO and Appium', () => {
     beforeEach(() => {
-        TabBar.waitForTabBarShown(true);
+        TabBar.waitForTabBarShown();
     });
 
     it('should be able to open the webview', () => {

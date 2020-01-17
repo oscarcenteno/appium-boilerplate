@@ -15,7 +15,7 @@ class Carousel extends Gestures {
      *
      * @param {boolean} isShown
      */
-    waitForIsDisplayed (isShown = true) {
+    waitForIsDisplayed(isShown = true) {
         $(SELECTORS.CAROUSEL).waitForDisplayed(DEFAULT_TIMEOUT, !isShown);
     }
 
@@ -36,11 +36,11 @@ class Carousel extends Gestures {
      *                 like for example 'active'
      * @param {string} partialText
      */
-    verifyNthCardContainsText (nthCard, partialText) {
+    verifyNthCardContainsText(nthCard, partialText) {
         this.waitForIsDisplayed();
 
         const cards = $$(SELECTORS.CARD);
-        driver.waitUntil(
+        browser.waitUntil(
             () => cards.length > 0,
             DEFAULT_TIMEOUT,
             `Expected to have more than 0 cards withing ${DEFAULT_TIMEOUT} milliseconds`,
@@ -50,7 +50,7 @@ class Carousel extends Gestures {
         const cardText = getTextOfElement(cards[cardNumber]).replace(/(?:\r\n|\r|\n)/g, ' ').toLowerCase();
         const expectedText = partialText.toLowerCase();
 
-        if (driver.isIOS) {
+        if (browser.isIOS) {
             return expect(cardText).toContain(expectedText);
         }
 
@@ -60,13 +60,13 @@ class Carousel extends Gestures {
          */
         return expectedText.split(' ')
             .forEach(word =>
-                global.expect(cardText).toContain(word));
+                expect(cardText).toContain(word));
     }
 
     /**
      * Swipe the carousel to the LEFT (from right to left)
      */
-    swipeLeft () {
+    swipeLeft() {
         const carouselRectangles = this.getCarouselRectangles();
         const y = Math.round((carouselRectangles.y + carouselRectangles.height) / 2);
         Gestures.swipe(
@@ -78,7 +78,7 @@ class Carousel extends Gestures {
     /**
      * Swipe the carousel to the RIGHT (from left to right)
      */
-    swipeRight () {
+    swipeRight() {
         const carouselRectangles = this.getCarouselRectangles();
         const y = Math.round((carouselRectangles.y + carouselRectangles.height) / 2);
         Gestures.swipe(
@@ -107,8 +107,8 @@ class Carousel extends Gestures {
      *    };
      * </pre>
      */
-    getCarouselRectangles () {
-        CAROUSEL_RECTANGLES = CAROUSEL_RECTANGLES || driver.getElementRect($(SELECTORS.CAROUSEL).elementId);
+    getCarouselRectangles() {
+        CAROUSEL_RECTANGLES = CAROUSEL_RECTANGLES || browser.getElementRect($(SELECTORS.CAROUSEL).elementId);
         return CAROUSEL_RECTANGLES;
     }
 }

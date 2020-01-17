@@ -17,8 +17,8 @@ class WebView {
      * `["NATIVE_APP","WEBVIEW_28158.2"]`
      * The number behind `WEBVIEW` can be any string
      */
-    waitForWebViewContextLoaded () {
-        driver.waitUntil(
+    waitForWebViewContextLoaded() {
+        browser.waitUntil(
             () => {
                 const currentContexts = this.getCurrentContexts();
 
@@ -36,8 +36,8 @@ class WebView {
      *
      * @param {string} context should be native of webview
      */
-    switchToContext (context) {
-        driver.switchContext(this.getCurrentContexts()[context === CONTEXT_REF.WEBVIEW ? 1 : 0]);
+    switchToContext(context) {
+        browser.switchContext(this.getCurrentContexts()[context === CONTEXT_REF.WEBVIEW ? 1 : 0]);
     }
 
     /**
@@ -45,16 +45,16 @@ class WebView {
      *
      * @return {object} An object containing the list of all available contexts
      */
-    getCurrentContexts () {
-        return driver.getContexts();
+    getCurrentContexts() {
+        return browser.getContexts();
     }
 
     /**
      * Wait for the document to be full loaded
      */
-    waitForDocumentFullyLoaded () {
-        driver.waitUntil(
-            () => driver.execute(() => document.readyState) === DOCUMENT_READY_STATE.COMPLETE,
+    waitForDocumentFullyLoaded() {
+        browser.waitUntil(
+            () => browser.execute(() => document.readyState) === DOCUMENT_READY_STATE.COMPLETE,
             15000,
             'Website not loaded',
             100
@@ -64,7 +64,7 @@ class WebView {
     /**
      * Wait for the website in the webview to be loaded
      */
-    waitForWebsiteLoaded () {
+    waitForWebsiteLoaded() {
         this.waitForWebViewContextLoaded();
         this.switchToContext(CONTEXT_REF.WEBVIEW);
         this.waitForDocumentFullyLoaded();

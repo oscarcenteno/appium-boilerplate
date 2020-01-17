@@ -5,7 +5,7 @@ import LoginScreen from '../screenobjects/login.screen';
 
 describe('WebdriverIO and Appium, interacting with form elements,', () => {
     beforeEach(() => {
-        TabBar.waitForTabBarShown(true);
+        TabBar.waitForTabBarShown();
         TabBar.openForms();
         FormScreen.waitForIsShown(true);
     });
@@ -21,8 +21,8 @@ describe('WebdriverIO and Appium, interacting with form elements,', () => {
          *  (and thus is NOT starting with the keyboard hidden)
          *  the keyboard is closed here if it is still visible.
          */
-        if (driver.isKeyboardShown()) {
-            driver.hideKeyboard();
+        if (browser.isKeyboardShown()) {
+            browser.hideKeyboard();
         }
     });
 
@@ -80,7 +80,7 @@ describe('WebdriverIO and Appium, interacting with form elements,', () => {
         FormScreen.alert.waitForIsShown(false);
         FormScreen.inActiveButton.click();
         // Just wait 1 second to be sure it didn't appear
-        driver.pause(1000);
+        browser.pause(1000);
         // Now validate it isn't there
         FormScreen.alert.waitForIsShown(false);
     });
