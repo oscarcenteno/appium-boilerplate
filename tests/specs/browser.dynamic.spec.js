@@ -1,7 +1,7 @@
 import DynamicPage from '../pageobjects/dynamic.page';
 
 describe('dynamic loading', () => {
-    it('should be an button on the page', () => {
+    it('should be a button on the page', () => {
         DynamicPage.open();
 
         expect(DynamicPage.loadedPage.isExisting()).toEqual(false);
